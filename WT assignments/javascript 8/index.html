@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisement Banner</title>
+    <style>
+        /* Styling for the banner */
+        #adBanner {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-size: 24px;
+            color: #333;
+            border: 2px solid #ccc;
+            margin: 20px 0;
+            position: relative;
+        }
+        .banner {
+            display: none;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+        .banner.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Advertisement Banner</h2>
+
+    <div id="adBanner">
+        <!-- Ad banners -->
+        <div class="banner active" id="ad1">Advertisement 1: Buy one, get one free!</div>
+        <div class="banner" id="ad2">Advertisement 2: 50% off on all electronics!</div>
+        <div class="banner" id="ad3">Advertisement 3: Free shipping on orders over $50!</div>
+    </div>
+
+    <script>
+        // Array of advertisement IDs
+        const ads = ['ad1', 'ad2', 'ad3'];
+        let currentAdIndex = 0;
+
+        function showNextAd() {
+            // Hide the current ad
+            document.getElementById(ads[currentAdIndex]).classList.remove('active');
+
+            // Move to the next ad in the array, looping back to the start if necessary
+            currentAdIndex = (currentAdIndex + 1) % ads.length;
+
+            // Show the next ad
+            document.getElementById(ads[currentAdIndex]).classList.add('active');
+        }
+
+        // Automatically change the ad every 3 seconds
+        setInterval(showNextAd, 3000);
+    </script>
+</body>
+</html>

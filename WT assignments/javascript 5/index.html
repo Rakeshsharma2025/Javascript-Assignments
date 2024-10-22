@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Year and Branch</title>
+    <link rel="Stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Student Information</h2>
+
+    <label for="rollNumber">Enter Roll Number:</label>
+    <input type="text" id="rollNumber" placeholder="e.g., ES19CS01">
+    <button onclick="getStudentDetails()">Get Details</button>
+
+    <p id="result"></p>
+
+    <script>
+        function getStudentDetails() {
+            const rollNumber = document.getElementById('rollNumber').value.toUpperCase();
+            const yearCode = rollNumber.slice(2, 4);
+            const branchCode = rollNumber.slice(4, 6);
+
+            const currentYear = new Date().getFullYear();
+            const yearPrefix = 2000 + parseInt(yearCode); // Assuming roll numbers start from 2000+
+            const studyYear = currentYear - yearPrefix + 1;
+
+            let yearOfStudy;
+            if (studyYear === 4) {
+                yearOfStudy = "Final Year";
+            } else if (studyYear === 3) {
+                yearOfStudy = "Third Year";
+            } else if (studyYear === 2) {
+                yearOfStudy = "Second Year";
+            } else if (studyYear === 1) {
+                yearOfStudy = "First Year";
+            } else {
+                yearOfStudy = "Invalid Year";
+            }
+
+            const branches = {
+                "CS": "CSE",
+                "EC": "ECE",
+                "ME": "Mechanical",
+                "EE": "Electrical",
+                "IT": "Information Technology"
+            };
+
+            const branch = branches[branchCode] || "Unknown Branch";
+
+            const result = `The student belongs to ${yearOfStudy} ${branch}`;
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

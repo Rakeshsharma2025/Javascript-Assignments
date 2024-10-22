@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Rakeshsharma">
+    <meta name="Discription" content="This website is about my operations on combo box">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Combo box</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Combo Box Operations</h1>
+
+        <label for="new-item">Add New Item:</label>
+        <input type="text" id="new-item" placeholder="Enter new item">
+        <button onclick="addItem()">Add Item</button>
+
+        <label for="combo-box">Select Item:</label>
+        <select id="combo-box" size="5">
+            <option value="Item1">Item 1</option>
+            <option value="Item2">Item 2</option>
+            <option value="Item3">Item 3</option>
+        </select>
+
+        <button onclick="removeItem()">Remove Selected Item</button>
+        <button onclick="displaySelected()">Display Selected Item</button>
+
+        <p id="display-area"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Rakeshsharma">
+    <meta name="Discription" content="This website is about my javascript Operations">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Analyzer</h1>
+
+        <label for="input-text">Enter your text:</label>
+        <textarea id="input-text" placeholder="Type here..."></textarea>
+
+        <button onclick="analyzeText()">Analyze Text</button>
+
+        <p id="alphabet-count"></p>
+        <p id="digit-count"></p>
+        <p id="special-char-count"></p>
+
+        <label for="bg-color">Select Background Color:</label>
+        <input type="color" id="bg-color" onchange="changeBackgroundColor()">
+
+        <label for="fg-color">Select Text Color:</label>
+        <input type="color" id="fg-color" onchange="changeTextColor()">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Rakeshsharma">
+    <meta name="Discription" content="This website is about my javascript operations on my table">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Table Operations</h1>
+
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>25</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td>22</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Lee</td>
+                    <td>28</td>
+                    <td>South Korea</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <label for="border-width">Select Border Width:</label>
+        <select id="border-width" onchange="changeBorderWidth()">
+            <option value="1">1px</option>
+            <option value="2">2px</option>
+            <option value="3">3px</option>
+            <option value="5">5px</option>
+        </select>
+
+        <label for="bg-color">Select Background Color:</label>
+        <input type="color" id="bg-color" onchange="changeBackgroundColor()">
+
+        <label for="fg-color">Select Text Color:</label>
+        <input type="color" id="fg-color" onchange="changeTextColor()">
+
+        <label for="text-align">Select Text Alignment:</label>
+        <select id="text-align" onchange="changeTextAlignment()">
+            <option value="left">Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+        </select>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

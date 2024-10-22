@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        #password {
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h2>Password Generator</h2>
+    <div id="password">Your password will appear here</div>
+    <button onclick="generatePassword()">Generate Password</button>
+</div>
+
+<script>
+    function generatePassword() {
+        const length = 8;
+        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const digits = '0123456789';
+        const allCharacters = uppercase + lowercase + digits;
+
+        let password = '';
+        let uppercaseCount = 0;
+        let digitCount = 0;
+
+        // Ensure the password has at least 2 uppercase letters and 1 digit
+        while (password.length < length) {
+            const randomIndex = Math.floor(Math.random() * allCharacters.length);
+            const char = allCharacters[randomIndex];
+
+            // Add at least 2 uppercase characters
+            if (uppercase.includes(char) && uppercaseCount < 2) {
+                password += char;
+                uppercaseCount++;
+            }
+            // Add at least 1 digit
+            else if (digits.includes(char) && digitCount < 1) {
+                password += char;
+                digitCount++;
+            }
+            // Fill the rest with random characters
+            else if (!uppercase.includes(char) || uppercaseCount >= 2) {
+                password += char;
+            }
+        }
+
+        // Display the generated password
+        document.getElementById('password').textContent = password;
+    }
+</script>
+
+</body>
+</html>
